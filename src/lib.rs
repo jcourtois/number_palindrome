@@ -1,13 +1,17 @@
-#[cfg(test)]
 use std::collections::HashMap;
 
-#[cfg(test)]
-struct Solution {}
+pub struct Solution {}
 
-#[cfg(test)]
 impl Solution {
+    // 3ms
+    pub fn is_palindrome(x: i32) -> bool {
+        let x = x.to_string();
+        let mut chars = x.chars();
+        (0..x.len() / 2).all(|_| chars.next() == chars.next_back())
+    }
+
     // 4ms
-    pub fn is_palindrome(mut x: i32) -> bool {
+    pub fn is_palindrome_slices(x: i32) -> bool {
         if x.is_negative() {
             return false;
         }
